@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Género</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo"><br><img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" /></div>
+        <a href="../index.html">Ventas</a>
+        <a href="/genero">Género</a>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Dashboard de Análisis de Género</h1>
+            <p>Bienvenido al panel de análisis donde puedes ver el rendimiento por género.</p>
+        </div>
+
+        <div class="main-content">
+            <h2>Proporción de Géneros</h2>
+            <div class="graph">
+                {{ graph1 | safe }}
+            </div>
+
+            <h2>Ventas Totales por Género</h2>
+            <div class="graph">
+                {{ graph2 | safe }}
+            </div>
+
+            <h2>Relación de Ventas y Personas por Género</h2>
+            <div class="graph">
+                {{ graph3 | safe }}
+            </div>
+
+            <h2>Tendencias de Ventas por Género a lo Largo del Día</h2>
+            <div class="graph">
+                {{ graph4 | safe }}
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Juan David Ramirez Jara | <a href="#">Contacto</a> | <a href="#">Privacidad</a></p>
+    </footer>
+</body>
+</html>

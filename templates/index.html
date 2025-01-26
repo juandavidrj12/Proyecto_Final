@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Análisis</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo"><br><img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" /></div>
+        <a href="/">Ventas</a>
+        <a href="/genero">Género</a>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Dashboard de Análisis de Ventas</h1>
+            <p>Bienvenido al panel de análisis donde puedes ver el rendimiento de las ventas por categoría, producto, sesión y más.</p>
+        </div>
+
+        <div class="main-content">
+            <h2>Comparación de Ventas: Fastfood vs Beverages</h2>
+            <div class="graph">
+                {{ graph1 | safe }}
+                <h3>Total Ventas</h3>
+                <div class="value">${{ total_sales | round(2) }}</div>
+            </div>
+
+            <h2>Ventas por Nombre de Producto</h2>
+            <div class="graph">
+                {{ graph2 | safe }}
+                <h3>Productos más Vendidos</h3>
+                <div class="value">{{ top_selling_products }}</div>
+            </div>
+
+            <h2>Ventas por Tipo de Transacción</h2>
+            <div class="graph">
+                {{ graph3 | safe }}
+                <h3>Tipo de Transacción Más Usado: {{ most_used_transaction }}</h3>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Analytics Dashboard | <a href="#">Contacto</a> | <a href="#">Privacidad</a></p>
+    </footer>
+</body>
+</html>
